@@ -1,6 +1,7 @@
 # YouTube Channel Link Fixer
 
 Before - YouTube channel names across YouTube.com do not link directly to the channel and instead link to the video.
+
 ![brave_mqUxMaQOO1](https://github.com/user-attachments/assets/900b1864-9e6d-477e-be0e-4ff41deb229e)
 
 After - YouTube channel names across YouTube.com are now highlighted blue and direct you to their channel. Clicking on the video/thumbnail or video title itself will still open the video as expected.
