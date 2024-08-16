@@ -1,5 +1,14 @@
 # YouTube Channel Link Fixer
 
+Before - YouTube channel names across YouTube.com do not link directly to the channel and instead link to the video.
+![brave_mqUxMaQOO1](https://github.com/user-attachments/assets/900b1864-9e6d-477e-be0e-4ff41deb229e)
+
+After - YouTube channel names across YouTube.com are now highlighted blue and direct you to their channel. Clicking on the video/thumbnail or video title itself will still open the video as expected.
+
+![brave_5ufEUqLM2E](https://github.com/user-attachments/assets/eb739c79-f9a4-428c-83d9-14f799398c15)
+
+
+
 ## Description
 YouTube Channel Link Fixer is a Chrome/Brave extension that enhances the user experience on YouTube by modifying the behavior of channel name links in the recommended videos section as well as the homepage. By default, clicking on a channel name directs to the video. This extension changes that behavior, making channel names link directly to the channel page instead.
 
