@@ -33,6 +33,18 @@ The extension uses a content script that:
 3. Adds event listeners for improved interactivity
 4. Uses a MutationObserver to handle dynamically loaded content
 
+## Customize Color
+If you prefer the original color of the YouTube channel names or want to change the color, perform the following steps:
+1. Replace the following line of code to keep the original color:
+
+linkElement.style.color = '#3ea6ff';
+
+Replace with:
+
+wrapper.style.color = 'inherit';
+
+2. Alternatively, change the "#3ea6ff" to whichever color you'd like to use.
+
 ## Compatibility
 This extension is designed for use with Chrome and Brave browsers. It may work with other Chromium-based browsers but has not been tested on them.
 
