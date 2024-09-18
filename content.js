@@ -1,4 +1,3 @@
-// Debounce function to limit how often the main function runs
 function debounce(func, wait) {
   let timeout;
   return function executedFunction(...args) {
@@ -17,14 +16,28 @@ function fixChannelLinks() {
   channelNames.forEach(channelName => {
     const linkElement = channelName.querySelector('#text');
     if (linkElement && linkElement.textContent) {
-      const channelHandle = linkElement.textContent.trim().replace(/\s+/g, '');
-      const channelUrl = `https://www.youtube.com/@${channelHandle}`;
+      let channelUrl;
+      
+      // Try to find the accurate channel handle
+      const channelRenderer = channelName.closest('ytd-channel-renderer');
+      if (channelRenderer) {
+        const subscribersElement = channelRenderer.querySelector('#subscribers');
+        if (subscribersElement && subscribersElement.textContent.startsWith('@')) {
+          channelUrl = `https://www.youtube.com/${subscribersElement.textContent.trim()}`;
+        }
+      }
+      
+      // If we couldn't find the accurate handle, fall back to the original method
+      if (!channelUrl) {
+        const channelHandle = linkElement.textContent.trim().replace(/\s+/g, '');
+        channelUrl = `https://www.youtube.com/@${channelHandle}`;
+      }
       
       // Create a wrapper element
       const wrapper = document.createElement('a');
       wrapper.href = channelUrl;
       wrapper.style.textDecoration = 'none';
-      wrapper.style.color = 'inherit';
+      linkElement.style.color = '#3ea6ff';
       wrapper.addEventListener('click', (e) => {
         e.stopPropagation();
       });
@@ -53,13 +66,10 @@ function fixChannelLinks() {
   });
 }
 
-// Debounced version of fixChannelLinks
 const debouncedFixChannelLinks = debounce(fixChannelLinks, 250);
 
-// Run the function initially
 debouncedFixChannelLinks();
 
-// Use a MutationObserver to handle dynamically loaded content
 const observer = new MutationObserver((mutations) => {
   let shouldRun = false;
   for (let mutation of mutations) {
@@ -75,5 +85,4 @@ const observer = new MutationObserver((mutations) => {
 
 observer.observe(document.body, { childList: true, subtree: true });
 
-// Disconnect the observer after 60 seconds to prevent continuous observation
 setTimeout(() => observer.disconnect(), 60000);
