@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "YouTube Channel Link Fix",
-  "version": "1.0",
+  "version": "1.2",
   "description": "Makes channel names in recommended videos link to the channel page",
   "permissions": ["scripting"],
   "host_permissions": ["https://www.youtube.com/*"],
